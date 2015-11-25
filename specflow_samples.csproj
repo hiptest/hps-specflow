@@ -28,6 +28,20 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="features/Nominal_case.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>features/Nominal_case.feature.cs</LastGenOutput>
+    </None>
+    <None Include="features/Error_messages.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>features/Error_messages.feature.cs</LastGenOutput>
+    </None>
+    <None Include="features/Weird_specs.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>features/Weird_specs.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="System" />
     <Reference Include="NUnit.2.6.4/lib/nunit.framework.dll" />
     <Reference Include="SpecFlow.1.9.0/tools/TechTalk.SpecFlow.dll" />
@@ -35,6 +49,7 @@
   <ItemGroup>
     <Compile Include="class/CoffeeMachine.cs" />
     <Compile Include="features/Actionwords.cs" />
+    <Compile Include="features/StepDefinitions.cs" />
     <Compile Include="features/*.feature.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
