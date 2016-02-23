@@ -28,17 +28,25 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="features/Nominal_case.feature">
+    <None Include="features/NominalCase.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/Nominal_case.feature.cs</LastGenOutput>
+      <LastGenOutput>features/NominalCase.feature.cs</LastGenOutput>
     </None>
-    <None Include="features/Error_messages.feature">
+    <None Include="features/ErrorMessages.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/Error_messages.feature.cs</LastGenOutput>
+      <LastGenOutput>features/ErrorMessages.feature.cs</LastGenOutput>
     </None>
-    <None Include="features/Weird_specs.feature">
+    <None Include="features/WeirdSpecs.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/Weird_specs.feature.cs</LastGenOutput>
+      <LastGenOutput>features/WeirdSpecs.feature.cs</LastGenOutput>
+    </None>
+    <None Include="features/Beans.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>features/Beans.feature.cs</LastGenOutput>
+    </None>
+    <None Include="features/Water.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>features/Water.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
