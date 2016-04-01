@@ -73,15 +73,39 @@ namespace Hiptest.Publisher.Samples {
         }
 
 
-        [Given("^fifty coffees have been taken without filling the tank$"), When("^fifty coffees have been taken without filling the tank$"), Then("^fifty coffees have been taken without filling the tank$")]
-        public void FiftyCoffeesHaveBeenTakenWithoutFillingTheTank() {
-            Actionwords.FiftyCoffeesHaveBeenTakenWithoutFillingTheTank();
+        [Given("^I handle everything except the water tank$"), When("^I handle everything except the water tank$"), Then("^I handle everything except the water tank$")]
+        public void IHandleEverythingExceptTheWaterTank() {
+            Actionwords.IHandleEverythingExceptTheWaterTank();
         }
 
 
-        [Given("^thirty eight coffees are taken without filling beans$"), When("^thirty eight coffees are taken without filling beans$"), Then("^thirty eight coffees are taken without filling beans$")]
-        public void ThirtyEightCoffeesAreTakenWithoutFillingBeans() {
-            Actionwords.ThirtyEightCoffeesAreTakenWithoutFillingBeans();
+        [Given("^I handle water tank$"), When("^I handle water tank$"), Then("^I handle water tank$")]
+        public void IHandleWaterTank() {
+            Actionwords.IHandleWaterTank();
+        }
+
+
+        [Given("^I handle beans$"), When("^I handle beans$"), Then("^I handle beans$")]
+        public void IHandleBeans() {
+            Actionwords.IHandleBeans();
+        }
+
+
+        [Given("^I handle coffee grounds$"), When("^I handle coffee grounds$"), Then("^I handle coffee grounds$")]
+        public void IHandleCoffeeGrounds() {
+            Actionwords.IHandleCoffeeGrounds();
+        }
+
+
+        [Given("^I handle everything except the beans$"), When("^I handle everything except the beans$"), Then("^I handle everything except the beans$")]
+        public void IHandleEverythingExceptTheBeans() {
+            Actionwords.IHandleEverythingExceptTheBeans();
+        }
+
+
+        [Given("^I handle everything except the grounds$"), When("^I handle everything except the grounds$"), Then("^I handle everything except the grounds$")]
+        public void IHandleEverythingExceptTheGrounds() {
+            Actionwords.IHandleEverythingExceptTheGrounds();
         }
     }
 }

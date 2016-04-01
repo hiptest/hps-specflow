@@ -32,21 +32,21 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>features/NominalCase.feature.cs</LastGenOutput>
     </None>
-    <None Include="features/ErrorMessages.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/ErrorMessages.feature.cs</LastGenOutput>
-    </None>
     <None Include="features/WeirdSpecs.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>features/WeirdSpecs.feature.cs</LastGenOutput>
     </None>
-    <None Include="features/Beans.feature">
+    <None Include="features/ErrorMessages/Beans.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/Beans.feature.cs</LastGenOutput>
+      <LastGenOutput>features/ErrorMessages/Beans.feature.cs</LastGenOutput>
     </None>
-    <None Include="features/Water.feature">
+    <None Include="features/ErrorMessages/Water.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/Water.feature.cs</LastGenOutput>
+      <LastGenOutput>features/ErrorMessages/Water.feature.cs</LastGenOutput>
+    </None>
+    <None Include="features/ErrorMessages/Grounds.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>features/ErrorMessages/Grounds.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -58,7 +58,8 @@
     <Compile Include="class/CoffeeMachine.cs" />
     <Compile Include="features/Actionwords.cs" />
     <Compile Include="features/StepDefinitions.cs" />
-    <Compile Include="features/*.feature.cs" />
+    <Compile Include="features/*feature.cs" />
+    <Compile Include="features/ErrorMessages/*feature.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
