@@ -8,7 +8,7 @@ before_install:
   - rvm install 2.2
   - rvm use 2.2
   - gem install hiptest-publisher
-  - "hiptest-publisher -c specflow.conf --only=features,step_definitions --test-run-id=9941"
+  - "hiptest-publisher -c specflow.conf --token=$SECRET_TOKEN --only=features,step_definitions --test-run-id=9941"
 
 script: 
   - xbuild specflow_samples.csproj /t:buildnunitfiles
@@ -16,4 +16,4 @@ script:
   - xbuild specflow_samples.csproj /t:test
 
 after_script:
-  - hiptest-publisher -c specflow.conf --push=TestResult.xml --test-run-id=9941
+  - hiptest-publisher -c specflow.conf --token=$SECRET_TOKEN --push=TestResult.xml --test-run-id=9941
