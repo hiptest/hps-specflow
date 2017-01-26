@@ -2,12 +2,14 @@ using System.Collections.Generic;
 
 namespace Hiptest.Publisher.Samples {
     using NUnit.Framework;
+    using TechTalk.SpecFlow;
+    using System.Linq;
 
     public class Actionwords {
         CoffeeMachine Sut = new CoffeeMachine();
         List<string> Handled = new List<string>();
 
-        public void IStartTheCoffeeMachine(string lang = "en") {
+        public void IStartTheCoffeeMachineUsingLanguageLang(string lang = "en") {
             Sut.Start(lang);
         }
 
@@ -64,7 +66,7 @@ namespace Hiptest.Publisher.Samples {
         }
 
         public void TheCoffeeMachineIsStarted() {
-            IStartTheCoffeeMachine();
+            IStartTheCoffeeMachineUsingLanguageLang();
         }
 
         public void IHandleWaterTank() {
@@ -94,5 +96,28 @@ namespace Hiptest.Publisher.Samples {
             this.IHandleBeans();
         }
 
+        public void DisplayedMessageIs(string freeText) {
+            MessageMessageShouldBeDisplayed(freeText);
+        }
+
+        public void ISwitchToSettingsMode() {
+            this.Sut.ShowSettings();
+        }
+
+        public string convertDict(Dictionary<string, string> dict) {
+            return string.Join(";", dict.Select(x => x.Key + "=" + x.Value).ToArray());
+        }
+
+        public void SettingsShouldBe(Table datatable) {
+            var settings = new Dictionary<string, string> {};
+            var headers = datatable.Header.ToList();
+
+            settings.Add(headers[0], headers[1]);
+            foreach(var row in datatable.Rows) {
+                settings.Add(row[0], row[1]);
+            }
+
+            Assert.AreEqual(this.convertDict(settings), this.convertDict(Sut.GetSettings()));
+        }
     }
 }

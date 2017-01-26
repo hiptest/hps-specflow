@@ -28,25 +28,34 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="features/NominalCase.feature">
+
+    <None Include="features/BadUsage.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/NominalCase.feature.cs</LastGenOutput>
+      <LastGenOutput>features/BadUsage.feature.cs</LastGenOutput>
     </None>
-    <None Include="features/WeirdSpecs.feature">
+    <None Include="features/CanBeConfigured.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/WeirdSpecs.feature.cs</LastGenOutput>
+      <LastGenOutput>features/CanBeConfigured.feature.cs</LastGenOutput>
     </None>
-    <None Include="features/ErrorMessages/Beans.feature">
+    <None Include="features/ServeCoffee.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/ErrorMessages/Beans.feature.cs</LastGenOutput>
+      <LastGenOutput>features/ServeCoffee.feature.cs</LastGenOutput>
     </None>
-    <None Include="features/ErrorMessages/Water.feature">
+    <None Include="features/SupportInternationalisation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/ErrorMessages/Water.feature.cs</LastGenOutput>
+      <LastGenOutput>features/SupportInternationalisation.feature.cs</LastGenOutput>
     </None>
-    <None Include="features/ErrorMessages/Grounds.feature">
+    <None Include="features/DisplayErrors/Beans.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>features/ErrorMessages/Grounds.feature.cs</LastGenOutput>
+      <LastGenOutput>features/DisplayErrors/Beans.feature.cs</LastGenOutput>
+    </None>
+    <None Include="features/DisplayErrors/Water.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>features/DisplayErrors/Water.feature.cs</LastGenOutput>
+    </None>
+    <None Include="features/DisplayErrors/Grounds.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>features/DisplayErrors/Grounds.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -59,7 +68,7 @@
     <Compile Include="features/Actionwords.cs" />
     <Compile Include="features/StepDefinitions.cs" />
     <Compile Include="features/*feature.cs" />
-    <Compile Include="features/ErrorMessages/*feature.cs" />
+    <Compile Include="features/DisplayErrors/*feature.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

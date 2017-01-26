@@ -7,9 +7,9 @@ namespace Hiptest.Publisher.Samples {
 
         public Actionwords Actionwords = new Actionwords();
 
-        [Given("^I start the coffee machine \"(.*)\"$"), When("^I start the coffee machine \"(.*)\"$"), Then("^I start the coffee machine \"(.*)\"$")]
-        public void IStartTheCoffeeMachine(string lang) {
-            Actionwords.IStartTheCoffeeMachine(lang);
+        [Given("^I start the coffee machine using language \"(.*)\"$"), When("^I start the coffee machine using language \"(.*)\"$"), Then("^I start the coffee machine using language \"(.*)\"$")]
+        public void IStartTheCoffeeMachineUsingLanguageLang(string lang) {
+            Actionwords.IStartTheCoffeeMachineUsingLanguageLang(lang);
         }
 
 
@@ -106,6 +106,24 @@ namespace Hiptest.Publisher.Samples {
         [Given("^I handle everything except the grounds$"), When("^I handle everything except the grounds$"), Then("^I handle everything except the grounds$")]
         public void IHandleEverythingExceptTheGrounds() {
             Actionwords.IHandleEverythingExceptTheGrounds();
+        }
+
+
+        [Given("^displayed message is:$"), When("^displayed message is:$"), Then("^displayed message is:$")]
+        public void DisplayedMessageIs(string freeText) {
+            Actionwords.DisplayedMessageIs(freeText);
+        }
+
+
+        [Given("^I switch to settings mode$"), When("^I switch to settings mode$"), Then("^I switch to settings mode$")]
+        public void ISwitchToSettingsMode() {
+            Actionwords.ISwitchToSettingsMode();
+        }
+
+
+        [Given("^settings should be:$"), When("^settings should be:$"), Then("^settings should be:$")]
+        public void SettingsShouldBe(Table datatable) {
+            Actionwords.SettingsShouldBe(datatable);
         }
     }
 }
