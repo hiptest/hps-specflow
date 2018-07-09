@@ -2,15 +2,13 @@ language: csharp
 sudo: false
 
 before_install:
-  - nuget install SpecFlow -Version 1.9.0
-  - nuget install NUnit -Version 2.6.4
-  - nuget install NUnit.Runners -Version 2.6.4
+  - nuget install -OutputDirectory packages
   - rvm install 2.2
   - rvm use 2.2
   - gem install hiptest-publisher
   - "hiptest-publisher -c specflow.conf --token=$SECRET_TOKEN --only=features,step_definitions --test-run-id=9941"
 
-script: 
+script:
   - xbuild specflow_samples.csproj /t:buildnunitfiles
   - xbuild specflow_samples.csproj /t:compile
   - xbuild specflow_samples.csproj /t:test

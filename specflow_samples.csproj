@@ -1,34 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\SpecFlow.2.3.2\build\SpecFlow.targets" Condition="Exists('packages\SpecFlow.2.3.2\build\SpecFlow.targets')" />
+  <Import Project="packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('packages\NUnit.3.10.1\build\NUnit.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{944946CD-39B2-4A16-A8A8-12345678}</ProjectGuid>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{776AF1C2-A106-4339-AC2D-A2A1405DE8EB}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Hiptest.Publisher.Samples</RootNamespace>
-    <AssemblyName>hiptest.publisher.samples</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>hpsspecflow</RootNamespace>
+    <AssemblyName>hps-specflow</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>build</OutputPath>
+    <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <Optimize>true</Optimize>
-    <OutputPath>build</OutputPath>
+    <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-
+    <Reference Include="packages/Newtonsoft.Json.9.0.1/lib/net45/Newtonsoft.Json.dll" />
+    <Reference Include="packages/System.ValueTuple.4.3.0/lib/netstandard1.0/System.ValueTuple.dll" />
+    <Reference Include="packages/SpecFlow.2.3.2/lib/net45/TechTalk.SpecFlow.dll" />
+    <Reference Include="packages/NUnit.3.10.1/lib/net45/nunit.framework.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="features/BadUsage.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>features/BadUsage.feature.cs</LastGenOutput>
@@ -59,29 +68,28 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.dll" />
-    <Reference Include="NUnit.2.6.4/lib/nunit.framework.dll" />
-    <Reference Include="SpecFlow.1.9.0/tools/TechTalk.SpecFlow.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="class/CoffeeMachine.cs" />
     <Compile Include="features/Actionwords.cs" />
     <Compile Include="features/StepDefinitions.cs" />
     <Compile Include="features/*feature.cs" />
     <Compile Include="features/DisplayErrors/*feature.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="class\" />
+    <Folder Include="features\" />
   </ItemGroup>
   <Target Name="Compile">
-    <Csc Sources="@(Compile)" References="@(Reference)" TargetType="Library" OutputAssembly="build/hiptest.publisher.samples.dll" />
+    <Csc Sources="@(Compile)" References="@(Reference)" TargetType="Library" OutputAssembly="bin/Debug/hps-specflow.dll" />
   </Target>
   <Target Name="BuildNUnitFiles">
-    <Exec Command="mono SpecFlow.1.9.0/tools/specflow.exe generateall specflow_samples.csproj" />
+    <Exec Command="mono packages/SpecFlow.2.3.2/tools/specflow.exe generateall specflow_samples.csproj" />
   </Target>
   <Target Name="Test" DependsOnTargets="BuildNUnitFiles;Compile">
-    <Exec Command="MONO_PATH=NUnit.2.6.4/lib:SpecFlow.1.9.0/lib/net35:build mono NUnit.Runners.2.6.4/tools/nunit-console.exe specflow_samples.csproj" />
+    <Exec Command="MONO_PATH=packages/NUnit.3.10.1/lib:packages/SpecFlow.2.3.2/lib/net45:bin/Debug mono packages/NUnit.ConsoleRunner.3.8.0/tools/nunit3-console.exe specflow_samples.csproj" />
   </Target>
 </Project>
 
