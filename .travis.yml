@@ -14,4 +14,4 @@ script:
   - msbuild /t:Test
 
 after_script:
-  - hiptest-publisher -c specflow.conf --token=$SECRET_TOKEN --push=TestResult.xml --test-run-id=9941
+  - hiptest-publisher -c specflow.conf --token=$SECRET_TOKEN --push=report.json --test-run-id=9941
