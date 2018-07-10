@@ -9,3 +9,8 @@ TestResult.xml
 *.exe
 *.dll
 *.dll.mdb
+
+.DS_Store
+.vs/
+bin/Debug/*
+packages/*
