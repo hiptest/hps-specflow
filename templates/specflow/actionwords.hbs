@@ -1,0 +1,26 @@
+using System;
+using SpecNuts;
+using SpecNuts.Json;
+using TechTalk.SpecFlow;
+
+namespace Hiptest.Publisher.Samples {{#curly}}{{#indent}}
+[Binding]
+public class StepDefinitions : ReportingStepDefinitions {{#curly}}{{#indent}}
+
+public Actionwords {{{ context.call_prefix }}} = new Actionwords();
+
+[BeforeTestRun]
+public static void BeforeTestRun(){{#curly}}{{#indent}}
+Reporters.Add(new JsonReporter());
+
+Reporters.FinishedReport += (sender, args) => {{#curly}}{{#indent}}
+System.IO.File.WriteAllText(@"report.json", args.Reporter.WriteToString());{{/indent}}
+{{/curly}};{{/indent}}
+{{/curly}}
+
+{{#each rendered_children.actionwords}}
+{{{this}}}{{/each}}
+{{/indent}}
+{{/curly}}
+{{/indent}}
+{{/curly}}

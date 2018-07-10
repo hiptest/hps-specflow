@@ -5,6 +5,7 @@ NUnit.Runners.2.6.4
 features/**/*.feature.cs
 obj
 TestResult.xml
+report.json
 
 *.exe
 *.dll
